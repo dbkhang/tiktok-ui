@@ -1,35 +1,29 @@
-// import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCircleQuestion,
-    // faCircleXmark,
     faCoins,
     faEarthAsia,
     faEllipsisVertical,
     faGear,
     faKeyboard,
     faSignOut,
-    // faSpinner,
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 import Tippy from '@tippyjs/react';
-// import HeadlessTippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
 
+import config from '~/config';
 import Button from '~/components/Button';
-// import { Wrapper as PopperWrapper} from '~/components/Popper';
 import styles from './Header.module.scss';
-import images  from '~/assets/images';
-// import AccountItem from '~/components/AccountItem';
+import images from '~/assets/images';
 import Menu from '~/components/Popper/Menu';
-// import { InboxIcon, MessageIcon, SearchIcon, UploadIcon } from '~/components/Icons';
-import Image from '~/components/Image';
 import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 import Search from '../Search';
 
-
-const cx = classNames.bind(styles)
+const cx = classNames.bind(styles);
 
 const MENU_ITEMS = [
     {
@@ -63,9 +57,9 @@ const MENU_ITEMS = [
 ];
 
 function Header() {
-    // const [searchResult, setSearchResult] = useState([]);
     const currentUser = true;
 
+    // Handle logic
     const handleMenuChange = (menuItem) => {
         switch (menuItem.type) {
             case 'language':
@@ -79,7 +73,7 @@ function Header() {
         {
             icon: <FontAwesomeIcon icon={faUser} />,
             title: 'View profile',
-            to: '/@aaaa',
+            to: '/@hoaa',
         },
         {
             icon: <FontAwesomeIcon icon={faCoins} />,
@@ -103,9 +97,9 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <div className={cx('logo')}>
-                    <img src={images.logo} alt = "TikTok"></img>
-                </div>
+                <Link to={config.routes.home} className={cx('logo-link')}>
+                    <img src={images.logo} alt="Tiktok" />
+                </Link>
 
                 <Search />
 
@@ -114,7 +108,7 @@ function Header() {
                         <>
                             <Tippy delay={[0, 50]} content="Upload video" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                <UploadIcon />
+                                    <UploadIcon />
                                 </button>
                             </Tippy>
                             <Tippy delay={[0, 50]} content="Message" placement="bottom">
@@ -140,8 +134,8 @@ function Header() {
                         {currentUser ? (
                             <Image
                                 className={cx('user-avatar')}
-                                src="https://scontent.fhph3-1.fna.fbcdn.net/v/t1.18169-9/16174731_725737350922304_4278245071131439818_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=RVqmo51UCE8AX9-oddl&_nc_oc=AQmH2p7-XyiFPrUF0qULBgoaEq_j-ioAL_F65rmMdVKwsMEXK19e2GE3ymmF48mAkQM&_nc_ht=scontent.fhph3-1.fna&oh=00_AT_mdcX9E0-3QsGl9YTSlGL3EU04s9HAY9evF7e5Foq60Q&oe=630813A7"
-                                alt="AAAA"
+                                src="https://scontent.fhan3-2.fna.fbcdn.net/v/t1.18169-9/16174731_725737350922304_4278245071131439818_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=6Qgqo5_XUq0AX9GJReS&_nc_oc=AQmX13Mryy6-jG_ouHUTASEW097ALL80BclpeOnotu7L1Jcdis6Ec_7a_FQWaqbXvR4&_nc_ht=scontent.fhan3-2.fna&oh=00_AT8GAmSNbykQszTZsOeMQtGL6ME2GZz5hFZiesiyrwk7Gw&oe=6313F127"
+                                alt="Nguyen Van A"
                             />
                         ) : (
                             <button className={cx('more-btn')}>
