@@ -1,20 +1,20 @@
-import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
-import styles from './Menu.module.scss';
+import styles from './Suggested.module.scss';
+import PropTypes from 'prop-types';
 
 const cx = classNames.bind(styles);
 
-function Menu({ children }) {
+function Suggested( {children} ) {
     return (
-        <nav>
+        <nav className={cx('wrapper')}>
             {children}
             <div className={cx('border')}></div>
         </nav>
-    )
+    );
 }
 
-Menu.propTypes = {
+Suggested.propTypes = {
     children: PropTypes.node.isRequired,
 };
 
-export default Menu;
+export default Suggested;
