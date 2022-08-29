@@ -1,0 +1,112 @@
+.wrapper {
+    display: block;
+    position: absolute;
+    width: 376px;
+    height: 640px;
+    top: 50px;
+    right: -55px;
+    background: rgb(255, 255, 255);
+    border-radius: 8px;
+    box-shadow: rgb(0 0 0 / 12%) 0px -4px 32px;
+    transition: all 200ms linear 0s;
+    z-index: 1000;
+}
+
+.arrow-top {
+    border-top: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid rgb(255, 255, 255);
+    border-left: 10px solid transparent;
+    width: 0; 
+    height:0;
+    position: absolute;
+    top: -20px;
+    right: 70px;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+.top {
+    padding-top: 24px;
+    flex: 0 0 auto;
+    padding-left: 16px;
+}
+
+.top h4 {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: left;
+}
+
+.top-container {
+    color: rgb(22, 24, 35);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: 16px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.top-container span {
+    background: rgb(241, 241, 241);
+    display: block;
+    padding: 2px 8px;
+    margin-bottom: 12px;
+    margin-right: 8px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: all 300ms ease 0s;
+    height: 24px;
+
+    &:hover {
+        background: rgba(0, 0, 0, 0.12);
+    }
+}
+
+.container {
+    text-align: left;
+    height: 500px;
+    overflow-y: scroll;
+    font-size: 1.6rem;
+}
+
+.inboxChildren-wrapper {
+    width: 368px;
+    height: 93px;
+    display: flex;
+    padding: 10px 0px 10px 0px;
+
+    
+    &:hover {
+        background-color: antiquewhite;
+    }
+}
+
+.user-avatar {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-left: 14px;
+    cursor: pointer;
+}
+
+.contentChildren {
+    width: 246px;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.imagePost {
+    width: 42px;
+    height: 56px;
+    margin-right: 14px;
+}

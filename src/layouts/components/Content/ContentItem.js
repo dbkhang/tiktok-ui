@@ -3,7 +3,6 @@ import styles from './content.module.scss';
 import PropTypes from 'prop-types';
 import Image from "~/components/Image";
 import Button from '~/components/Button';
-import WindowTab, {WindowTabItem} from '~/layouts/components/WindowTab';
 
 const cx = classNames.bind(styles);
 
@@ -19,8 +18,10 @@ function ContentItem({
     iconShare,
     numberLike,
     numberCmt,
-    numberShare
+    numberShare,
+    typeButton,
 }) {
+
     return (
         <div className={cx('wrapeper')}>
             <a className={cx('display')} href={to}>
@@ -37,7 +38,7 @@ function ContentItem({
                         <a className={cx('title1')} href={to}>{title1}</a>
                         <span className={cx('title2')}>{title2}</span>
                     </div>
-                    <Button primary>Follow</Button>
+                    <Button className={cx(typeButton)} primary>Follow</Button>
                 </div>
                 <span className={cx('text-content')}> {textContent} </span>
                 <div className={cx('content')}>
@@ -56,21 +57,6 @@ function ContentItem({
                     </div>
                 </div>
             </div>
-
-            <div className = {cx('WindowTab')}>
-                <WindowTab >
-                    <WindowTabItem
-                        image={imageHeader}
-                        to={to}
-                        title1={title1}
-                        title2={title2}
-                        numberFollower={6}
-                        numberLike={9}
-                    >
-                    </WindowTabItem>
-                </WindowTab>
-            </div>
-
         </div>
     );
 }
@@ -88,6 +74,7 @@ ContentItem.propTypes = {
     numberLike: PropTypes.number.isRequired,
     numberCmt: PropTypes.number.isRequired,
     numberShare: PropTypes.number.isRequired,
+    typeButton: PropTypes.string.isRequired,
 };
 
 export default ContentItem;

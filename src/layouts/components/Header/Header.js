@@ -13,6 +13,7 @@ import {
 import { Link } from 'react-router-dom';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
+import { useState } from 'react';
 
 import config from '~/config';
 import Button from '~/components/Button';
@@ -22,6 +23,9 @@ import Menu from '~/components/Popper/Menu';
 import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 import Search from '../Search';
+import Inbox from '../Inbox';
+import InboxChildren from '../Inbox/InboxChildren';
+
 
 const cx = classNames.bind(styles);
 
@@ -94,6 +98,19 @@ function Header() {
         },
     ];
 
+    const [xh, setXh] = useState("none")
+    const [color, setColor] = useState("non-color")
+
+    const clickInbox = () => {
+        if (xh === "none") {
+            setXh("xh");
+            setColor("color");
+        } else if(xh === "xh") {
+            setXh("none");
+            setColor("");
+        }
+    }
+
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -116,10 +133,22 @@ function Header() {
                                     <MessageIcon />
                                 </button>
                             </Tippy>
-                            <Tippy delay={[0, 50]} content="Inbox" placement="bottom">
-                                <button className={cx('action-btn')}>
-                                    <InboxIcon />
+                            <Tippy delay={[0, 50]} content="Inbox" placement="bottom" >
+                                <button className={cx('action-btn')} onClick={clickInbox}>
+                                    <InboxIcon className={cx(color)} />
                                     <span className={cx('badge')}>12</span>
+                                    <div className={cx(xh)}>
+                                        <Inbox > 
+                                            <InboxChildren
+                                                imageUser = "https://scontent.fhan3-2.fna.fbcdn.net/v/t1.18169-9/16174731_725737350922304_4278245071131439818_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=6Qgqo5_XUq0AX9GJReS&_nc_oc=AQmX13Mryy6-jG_ouHUTASEW097ALL80BclpeOnotu7L1Jcdis6Ec_7a_FQWaqbXvR4&_nc_ht=scontent.fhan3-2.fna&oh=00_AT8GAmSNbykQszTZsOeMQtGL6ME2GZz5hFZiesiyrwk7Gw&oe=6313F127" 
+                                                imagePost = "https://scontent.fhan3-2.fna.fbcdn.net/v/t1.18169-9/16174731_725737350922304_4278245071131439818_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=6Qgqo5_XUq0AX9GJReS&_nc_oc=AQmX13Mryy6-jG_ouHUTASEW097ALL80BclpeOnotu7L1Jcdis6Ec_7a_FQWaqbXvR4&_nc_ht=scontent.fhan3-2.fna&oh=00_AT8GAmSNbykQszTZsOeMQtGL6ME2GZz5hFZiesiyrwk7Gw&oe=6313F127" 
+                                                nameUser = "khang"
+                                                title = "test thử"
+                                                to={config.routes.home}
+                                            >
+                                            </InboxChildren>
+                                        </Inbox>
+                                    </div>
                                 </button>
                             </Tippy>
                         </>
