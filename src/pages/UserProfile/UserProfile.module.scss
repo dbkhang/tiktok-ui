@@ -1,0 +1,208 @@
+.account-item {
+    display: flex;
+    padding: 8px;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.item-info {
+    flex: 1;
+    margin-left: 12px;
+}
+
+.nickname {
+    margin-top: 0;
+    font-size: 2.4rem;
+    color: #161823;
+    line-height: 1;
+}
+
+.check {
+    margin-left: 4px;
+    font-size: 1.4rem;
+    color: #20d5ec;
+}
+
+.name {
+    font-size: 2rem;
+    opacity: #161823bf;
+    margin-bottom: 7px;
+}
+
+.analytics-value {
+    margin-left: 10px;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.analytics-label {
+    margin-right: 15px;
+}
+
+.edit-none {
+    display: none;
+}
+
+.editIcon {
+    margin-right: 5px;
+    color: #161823;
+}
+
+.background_edit {
+    box-sizing: border-box;
+    position: fixed;
+    inset: 0px;
+    background: rgba(127, 127, 127, 0.5);
+    transition-property: opacity;
+    transition-duration: 300ms;
+    transition-timing-function: linear;
+    opacity: 1;
+}
+
+.editProfile {
+    box-sizing: border-box;
+    position: fixed;
+    inset: 0px;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    overflow: auto;
+}
+
+.main {
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    align-items: flex-start;
+    max-height: 100vh;
+    overflow: visible;
+    // background-color: #161823;
+}
+
+.main p {
+    font-size: 1.2rem;
+}
+
+.edit-content {
+    width: 700px;
+    height: 700px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+// .edit-content input {
+//     border: 1px solid black;
+// }
+
+.header-edit {
+    display: flex;
+    border-bottom: 1px solid rgba(227, 227, 228, 1);
+    justify-content: space-between;
+    margin-top: 30px;
+    padding-bottom: 15px;
+}
+
+.header-edit h2 {
+    margin-left: 30px;
+}
+
+.header-edit button {
+    margin-right: 35px;
+}
+
+.XIcon {
+    background: #ffffff;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.edit-container {
+    width: 652px;
+    padding-left: 24px;
+}
+
+.photo-edit {
+    height: 120px;
+    display: flex;
+    border-bottom: 1px solid rgba(227, 227, 228, 1);
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.username-edit {
+    display: flex;
+    border-bottom: 1px solid rgba(227, 227, 228, 1);
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.name-edit {
+    display: flex;
+    border-bottom: 1px solid rgba(227, 227, 228, 1);
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.bio-edit {
+    display: flex;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.bottom-edit {
+    display: flex;
+    border-top: 1px solid rgba(227, 227, 228, 1);
+    justify-content: flex-end;
+    padding-right: 35px;
+    padding-top: 20px;
+}
+
+.edit-left {
+    width: 175px;
+}
+
+.edit-left span {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.edit-right {
+    width: 360px;
+}
+
+.input-username,
+.input-name {
+    width: 360px;
+    height: 38px;
+    background-color: rgb(241, 241, 242);
+    font-size: 1.8rem;
+    border-radius: 5px;
+    border: rgb(241, 241, 242);
+    margin-bottom: 15px;
+    padding-left: 15px;
+}
+
+.input-bio {
+    width: 360px;
+    height: 100px;
+    background-color: rgb(241, 241, 242);
+    font-size: 1.8rem;
+    border-radius: 5px;
+    border: rgb(241, 241, 242);
+    padding-left: 15px;
+}
+
+.input-bio:active {
+    border-radius: 5px;
+    border: rgb(241, 241, 242);
+}

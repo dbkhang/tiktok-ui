@@ -1,8 +1,11 @@
 import classNames from 'classnames/bind';
 import styles from './content.module.scss';
 import PropTypes from 'prop-types';
+import React, { useState } from "react";
+
 import Image from "~/components/Image";
 import Button from '~/components/Button';
+import { Like, Comment, Share } from '~/components/Icons';
 
 const cx = classNames.bind(styles);
 
@@ -13,14 +16,27 @@ function ContentItem({
     title2,
     textContent,
     imageContent,
-    iconLike,
-    iconCmt,
-    iconShare,
     numberLike,
     numberCmt,
     numberShare,
     typeButton,
 }) {
+
+    const[numberLikeChage, setNumberLikeChage] = useState(numberLike)
+    const[bool, setBool] = useState(1)
+    const[chageBackground, setChageBackground] = useState('')
+
+    const clickLike = () => {
+        if(bool === 1) {
+            setNumberLikeChage(numberLikeChage + 1);
+            setChageBackground('chageBackground')
+            setBool(0)
+        } else {
+            setNumberLikeChage(numberLikeChage - 1);
+            setChageBackground('')
+            setBool(1)
+        } 
+    }
 
     return (
         <div className={cx('wrapeper')}>
@@ -38,7 +54,10 @@ function ContentItem({
                         <a className={cx('title1')} href={to}>{title1}</a>
                         <span className={cx('title2')}>{title2}</span>
                     </div>
-                    <Button className={cx(typeButton)} primary>Follow</Button>
+                    <div className={cx(typeButton)}>
+                        <Button primary>Follow</Button>
+                    </div>
+                    
                 </div>
                 <span className={cx('text-content')}> {textContent} </span>
                 <div className={cx('content')}>
@@ -48,11 +67,11 @@ function ContentItem({
                         alt='nguyen van a'
                     />
                     <div className={cx('number-icon')}>
-                        <button className={cx('icon')}>{iconLike}</button>
-                        <span className={cx('numbertt')}>{numberLike}</span>
-                        <button className={cx('icon')}>{iconCmt}</button>
+                        <button className={cx('icon')} onClick={clickLike} > <Like className={cx( chageBackground )} /> </button>
+                        <span className={cx('numbertt')}>{numberLikeChage}</span>
+                        <button className={cx('icon')}> <Comment/> </button>
                         <span className={cx('numbertt')}>{numberCmt}</span>
-                        <button className={cx('icon')}>{iconShare}</button>
+                        <button className={cx('icon')}> <Share /> </button>
                         <span className={cx('numbertt')}>{numberShare}</span>
                     </div>
                 </div>
@@ -68,9 +87,6 @@ ContentItem.propTypes = {
     title2: PropTypes.string.isRequired,
     textContent: PropTypes.string.isRequired,
     imageContent: PropTypes.string.isRequired,
-    iconLike: PropTypes.node.isRequired,
-    iconCmt: PropTypes.node.isRequired,
-    iconShare: PropTypes.node.isRequired,
     numberLike: PropTypes.number.isRequired,
     numberCmt: PropTypes.number.isRequired,
     numberShare: PropTypes.number.isRequired,
